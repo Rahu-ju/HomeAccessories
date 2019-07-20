@@ -1,0 +1,10 @@
+/* staticfiles/css/base.css */
+
+h4{
+    color:red;
+}
+
+.bookcover{
+    height: 300px;
+    width: auto;
+}

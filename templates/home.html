@@ -1,0 +1,24 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock title %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h4>Home page.</h4>
+            <img class='bookcover' src="{% static 'images/djangoforprofessionals.jpg' %}" alt="Image is not loaded">
+            {% if user.is_authenticated %}
+                <p>Hi {{ user.email }}</p>
+                <a href="{% url 'account_logout' %}">Logout</a>
+
+            {% else %}
+                <p>you are not logged in.</p>
+                <a href="{% url 'account_login' %}">Login</a>
+                <a href="{% url 'account_signup' %}">Sign Up</a>
+            {% endif %}
+        </div>
+        
+    </div>
+</div>
+{% endblock content %}
