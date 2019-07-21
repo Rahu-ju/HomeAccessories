@@ -175,3 +175,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Login and logout redirect url
 
+# Default email settings
+DEFAULT_FROM_EMAIL = 'admin@bookstore.com'
+
