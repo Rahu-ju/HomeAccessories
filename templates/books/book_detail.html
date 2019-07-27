@@ -4,6 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
+                {% comment %} show the book's detail {% endcomment %}
                 <div class="card mb-3" style="max-width: 540px;">
                     <div class="row no-gutters">
                         <div class="col-md-4">
@@ -19,6 +20,22 @@
                         </div>
                     </div>
                 </div>
+
+                {% comment %} show the reviews of the book.{% endcomment %}
+                {% if book.reviews.all %}
+                    <div class="card">
+                        <h5 class="card-header">Reviews</h5>
+                        <div class="card-body">
+                            {% for review in book.reviews.all %}
+                                <img src="" alt="">
+                                <h5 class="card-title">{{ review.author }}</h5>
+                                <p class="card-text">{{ review.review }}</p>
+                            {% endfor %}
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                {% endif %}
+
             </div>
         </div>
     </div>
