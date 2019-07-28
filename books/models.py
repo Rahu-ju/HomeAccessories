@@ -10,12 +10,17 @@ class Book(models.Model):
     title = models.CharField(max_length=200) 
     author = models.CharField(max_length=200)
     price = models.DecimalField(max_digits=5, decimal_places=2)
+    cover = models.ImageField(upload_to='books/covers/', blank=True)
 
     def __str__(self):
         return self.title
 
     def get_absolute_url(self):
         return reverse("book_detail", kwargs={"pk": self.pk})
+
+    def image_url(self):
+        if self.cover and hasattr(self.cover, 'url'):
+            return self.cover.url
 
 
 

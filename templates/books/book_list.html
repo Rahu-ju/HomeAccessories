@@ -6,7 +6,9 @@
             
             {% for book in book_list %}
                 <div class="card mr-3 {% cycle 'col-md-3' 'col-md-3' %}" style="">
-                    <a href="{{ book.get_absolute_url }}"><img src="..." class="card-img-top" alt="..."></a>
+                    <a href="{{ book.get_absolute_url }}">
+                        <img src="{{ book.image_url }}" class="card-img-top" alt="{{ book.title }}">
+                    </a>
                     <div class="card-body">
                         <h5 class="card-title"><a href="{{ book.get_absolute_url }}">{{ book.title }}</a></h5>
                         <p class="card-text">{{ book.author }}</p>
