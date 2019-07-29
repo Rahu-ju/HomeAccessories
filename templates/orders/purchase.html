@@ -1,0 +1,22 @@
+{% extends '_base.html' %}
+{% block title %}orders{% endblock title %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-6 col-offset-3">
+            orders
+            <form action="{% url 'charge' %}" method='post'>{% csrf_token %}
+                {% comment %} stripe payment form delivered by stripe {% endcomment %}
+                <script src="https://checkout.stripe.com/checkout.js"
+                    class="stripe-button"
+                    data-key="{{ stripe_test_publishable_key }}"
+                    data-amount="1000"
+                    data-name="BookStore"
+                    data-description=""
+                    data-image="">
+                </script>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
