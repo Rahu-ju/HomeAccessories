@@ -22,9 +22,9 @@ def charge(request):
         charge = stripe.Charge.create(
             amount=3900,
             currency='usd',
-            card="tok_visa"
+            description='Example charge',
+            source = request.POST['stripeToken']
         )
-
     return render(request, template)
     
     
