@@ -1,4 +1,5 @@
 import stripe
+from django.contrib.auth.models import Permission
 from django.conf import settings
 from django.shortcuts import render
 from django.views.generic.base  import TemplateView
@@ -25,6 +26,14 @@ def charge(request):
             description='Example charge',
             source = request.POST['stripeToken']
         )
+        if charge:
+            # get permission
+            permission = Permission.objects.get(codename='special_status')
+
+            # get user and add to the user's permission set for payment
+            user = request.user
+            user.user_permissions.add(permission)
+            
     return render(request, template)
     
     
