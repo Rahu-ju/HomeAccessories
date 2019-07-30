@@ -3,7 +3,8 @@
 {% block content %}
     <div class="container">
         <div class="row">
-            
+            <div class="row mb-3"><a href="{% url 'orders' %}" class='btn btn-outline-primary'>Purchase all Books</a></div>
+            <div class="row">
             {% for book in book_list %}
                 <div class="card mr-3 {% cycle 'col-md-3' 'col-md-3' %}" style="">
                     <a href="{{ book.get_absolute_url }}">
@@ -17,6 +18,7 @@
                     </div>
                 </div>
             {% endfor %}
+            </div>
             
         </div>
     </div>
