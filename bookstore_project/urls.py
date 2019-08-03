@@ -20,7 +20,7 @@ from django.conf import settings
 
 urlpatterns = [
     # Django Admin
-    path('admin/', admin.site.urls),
+    path('book_store_admin/', admin.site.urls),
 
     # User management
     path('accounts/', include('allauth.urls')),
